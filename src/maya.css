@@ -1,0 +1,46 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+@font-face{
+	src:url('fonts/Norasi.ttf');
+	fontFamily:Norasi;
+	src:url('fonts/Kinnari.ttf');
+	fontFamily:Kinnari;
+	src:url('fonts/Servus_text_display_italic.ttf');
+	fontFamily:Servus;
+}
+global {
+	fontSize: 16px;
+}
+s|Button#upbt:up {
+backgroundAlpha:0;
+textAlpha:0;
+}
+s|Button#upbt {
+	color:#00ff00;
+}
+
+s|Button#downbt:up {
+	backgroundAlpha:0;
+	textAlpha:0;
+}
+s|Button#downbt {
+	color:#00ff00;
+}
+
+s|List#ptklist, s|TextInput, s|TextArea, s|RichEditableText {
+	fontFamily:Norasi;
+}
+
+s|List#ptklist {
+	fontSize: 14px;
+}
+
+mx|ToolTip {
+	fontSize: 14px;
+}
+
+s|Label {
+	fontFamily:Norasi;
+}

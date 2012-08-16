@@ -1,0 +1,196 @@
+
+<model xmlns="http://ns.adobe.com/Fiber/1.0">
+  <annotation name="ActionScriptGeneration">
+    <item name="FullyQualifyReferences">true</item>
+  </annotation>
+  <entity name="PotthakaDatatype">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">PotthakaDatatype</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">ArchivesService</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="getPotthakaList">
+      <item name="propertySpecifier">Serial</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="Serial" type="string" required="true"/>
+  </entity>
+  <service name="ArchivesService">
+    <annotation name="ActionScriptGeneration">
+      <item name="Source">ArchivesService</item>
+      <item name="ServiceType">RemoteObject</item>
+      <item name="Package">services.archivesservice</item>
+      <item name="Endpoint">gateway.php</item>
+      <item name="Destination">ArchivesService</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">PHP</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="PHP_RELATIVE_LOCATION">maya/services/ArchivesService.php</item>
+      <item name="PHP_SERVER_ROOT">E:\xamppro\htdocs\public\</item>
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="PHP_SERVICES_FOLDER">E:\xamppro\htdocs\public\blue\services</item>
+      <item name="PHP_LOCATION">E:/xamppro/htdocs/public/maya/services/ArchivesService.php</item>
+      <item name="LINKED_FILE">ArchivesService.php</item>
+      <item name="PHP_SERVER_ROOT_URL">http://localhost:10080/</item>
+      <item name="ABSOLUTE_ENDPOINT">http://localhost:10080/blue/gateway.php</item>
+      <item name="PHP_CLASS_NAME">ArchivesService</item>
+    </annotation>
+    <function name="getPotthaka" return-type="PtkPageDatatype[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+        <item name="inputParams">opaque</item>
+        <item name="inputParamNames">serial,vol,page</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">OriginalFilePath,Page</item>
+      </annotation>
+      <parameter name="serial" type="string"/>
+    </function>
+    <function name="getPotthakaDetail" return-type="ArchivesDatatype[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+        <item name="inputParams">opaque</item>
+        <item name="inputParamNames">serial</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">Period,DateDigitized,Format,DateSurveyed,Type,Author,VNote,Story,Tag,Version,Owner,TotalPage,Place,TotalVolume,Volume,DateCreated,FNote,Footnote,Province,DateMicrofilmed,Character,Title,City,Publisher,Serial,AbstractFilePath,DateInscribed,DateModified,District,Language,SubType</item>
+      </annotation>
+      <parameter name="serial" type="string"/>
+    </function>
+    <function name="getPotthakaList" return-type="opaque">
+      <annotation name="analyze group">
+        <item name="analyzed">false</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">Serial</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+        <item name="inputParams">opaque</item>
+        <item name="inputParamNames">showall</item>
+      </annotation>
+      <parameter name="showall" type="boolean"/>
+    </function>
+    <function name="updatePotthakaView" return-type="opaque">
+      <annotation name="analyze group">
+        <item name="analyzed">false</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+        <item name="inputParams">opaque</item>
+        <item name="inputParamNames">serial</item>
+      </annotation>
+      <parameter name="serial" type="string"/>
+    </function>
+    <function name="updateDetailView" return-type="opaque">
+      <annotation name="analyze group">
+        <item name="analyzed">false</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">opaque</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+      <parameter name="serial" type="string"/>
+    </function>
+  </service>
+  <entity name="ArchivesDatatype">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">ArchivesDatatype</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">ArchivesService,ArchivesServiceDummy</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="getPotthaka">
+      <item name="propertySpecifier">OriginalFilePath</item>
+    </annotation>
+    <annotation name="getPotthakaDetail">
+      <item name="propertySpecifier">Period,DateDigitized,Format,DateSurveyed,Type,Author,VNote,Story,Tag,Version,Owner,TotalPage,Place,TotalVolume,Volume,DateCreated,FNote,Footnote,Province,DateMicrofilmed,Character,Title,City,Publisher,Serial,AbstractFilePath,DateInscribed,DateModified,District,Language,SubType</item>
+    </annotation>
+    <property name="AbstractFile" type="opaque" required="true"/>
+    <property name="DateInscribe" type="date" required="true"/>
+    <property name="Downloaded" type="integer" required="true"/>
+    <property name="LastDownload" type="date" required="true"/>
+    <property name="Note" type="opaque" required="true"/>
+    <property name="PortableFile" type="opaque" required="true"/>
+    <property name="FNo" type="integer" required="true"/>
+    <property name="OriginalFilePath" type="string" required="true"/>
+    <property name="Page" type="string" required="true"/>
+    <property name="VisDateModified" type="string" required="true"/>
+    <property name="Viewed" type="integer" required="true"/>
+    <property name="FirstView" type="string" required="true"/>
+    <property name="VisDateCreated" type="string" required="true"/>
+    <property name="LastView" type="string" required="true"/>
+    <property name="PortableFilePath" type="string" required="true"/>
+    <property name="Editor" type="string" required="true"/>
+    <property name="Period" type="integer" required="true"/>
+    <property name="DateDigitized" type="string" required="true"/>
+    <property name="Format" type="string" required="true"/>
+    <property name="DateSurveyed" type="string" required="true"/>
+    <property name="Type" type="string" required="true"/>
+    <property name="Author" type="string" required="true"/>
+    <property name="VNote" type="string" required="true"/>
+    <property name="Story" type="string" required="true"/>
+    <property name="Tag" type="string" required="true"/>
+    <property name="Version" type="string" required="true"/>
+    <property name="Owner" type="string" required="true"/>
+    <property name="TotalPage" type="integer" required="true"/>
+    <property name="Place" type="string" required="true"/>
+    <property name="TotalVolume" type="integer" required="true"/>
+    <property name="Volume" type="integer" required="true"/>
+    <property name="DateCreated" type="string" required="true"/>
+    <property name="FNote" type="string" required="true"/>
+    <property name="Footnote" type="string" required="true"/>
+    <property name="Province" type="string" required="true"/>
+    <property name="DateMicrofilmed" type="string" required="true"/>
+    <property name="Character" type="string" required="true"/>
+    <property name="Title" type="string" required="true"/>
+    <property name="City" type="string" required="true"/>
+    <property name="Publisher" type="string" required="true"/>
+    <property name="Serial" type="string" required="true"/>
+    <property name="AbstractFilePath" type="string" required="true"/>
+    <property name="DateInscribed" type="string" required="true"/>
+    <property name="DateModified" type="string" required="true"/>
+    <property name="District" type="string" required="true"/>
+    <property name="Language" type="string" required="true"/>
+    <property name="SubType" type="string" required="true"/>
+  </entity>
+  <entity name="PtkPageDatatype">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">PtkPageDatatype</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">ArchivesService,ArchivesServiceDummy</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="getPotthaka">
+      <item name="propertySpecifier">OriginalFilePath,Page</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="OriginalFilePath" type="string" required="true"/>
+    <property name="Page" type="string" required="true"/>
+  </entity>
+</model>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services-config>
+    <services>
+        <service id="zend-flashremoting-service"
+                 class="flex.messaging.services.RemotingService"
+                 messageTypes="flex.messaging.messages.RemotingMessage">
+                 <default-channels>
+                    <channel ref="zend-endpoint"/>
+                    <channel ref="zend-endpoint-secure"/>
+                </default-channels>
+            <destination id="zendgateway">                
+                <channels>
+                    <channel ref="zend-endpoint"/>
+                    <channel ref="zend-endpoint-secure"/>
+                </channels>
+                <properties>
+                    <source>*</source>
+                </properties>
+            </destination>
+        </service>
+    </services>
+
+    <channels>
+        <channel-definition id="zend-endpoint" class="mx.messaging.channels.AMFChannel">
+            <endpoint uri="http://127.0.0.1:80/maya/gateway.php" class="flex.messaging.endpoints.AMFEndpoint"/>
+            <properties>
+              <add-no-cache-headers>false</add-no-cache-headers>
+              <polling-enabled>false</polling-enabled>
+              <serialization>
+               <instantiate-types>false</instantiate-types>
+              </serialization>
+           </properties> 
+        </channel-definition>
+        <channel-definition id="zend-endpoint-secure" class="mx.messaging.channels.SecureAMFChannel">
+            <endpoint uri="https://127.0.0.1:443/maya/gateway.php" class="flex.messaging.endpoints.SecureAMFEndpoint"/>
+            <properties>
+					    <add-no-cache-headers>false</add-no-cache-headers>
+					    <polling-enabled>false</polling-enabled>
+					    <serialization>
+					     <instantiate-types>false</instantiate-types>
+					    </serialization>
+				   </properties> 
+        </channel-definition>
+    </channels>
+</services-config>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				 xmlns:s="library://ns.adobe.com/flex/spark" 
+				 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="1150"
+				 creationComplete="nav_init(event)">
+	<fx:Declarations>
+		
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			private function nav_init(event:FlexEvent):void {
+				wheel.text = "\"Mouse\"\n\n===Wheel===\nRoll up = Zoom In\n"
+					+"Roll down = Zoom Out";
+				clickme.text = "===Right Click===\nRightClick = Context Menu\n"
+					+"===Left Click===\nClick = Zoom In\nSHIFT + Click = Zoom Out";
+				panTL.text = "\nWhen Maximum Zoom In\nRoll up + Position of Cursor"
+					+"\nor Click + Position of Cursor\nTop = Pan Up\nLeft = Pan Left";
+				panBR.text = "\nBottom = Pan Down\nRight = Pan Right";
+				panme.text = "===Drag Mouse===\nWhen You take Zoom In,\n"
+					+"You can drag mouse.\n"
+					+"Drag Up = Pan Up\nDrag Down = Pan Down\n"
+					+"Drag Left = Pan Left\nDrag Right = Pan Right";
+				dragme.text = "Long Drag Up = Next Page\n"
+					+"Long Drag Down\n = Previous Page\n"
+					+"***Warn***\nLong Drag = 200px or\n"
+					+"about 1/2 of height\nnormal screen(443px)";
+				pressme.text = "\"Keyboard\"\n\n===Press===\n"
+					+"F = Fullscreen\nEsc = Exit Fullscreen\nH = Show All\n"
+					+"I / + = Zoom In\nO / - = Zoom Out\n"
+					+"W / Up Arrow / PAGE_UP\n = Pan Up\n"
+					+"S / Down / PAGE_DOWN\n = Pan Down\n"
+					+"A / Left Arrow / HOME\n = Pan Left\n"
+					+"D / Right / END\n = Pan Right\n";
+			}
+		]]>
+	</fx:Script>
+	<s:Group id="navhead" width="100%" height="35">
+		<s:Rect id="tbFill" left="0" right="0" top="0" bottom="1">
+			<s:fill>
+				<s:LinearGradient rotation="90">
+					<s:GradientEntry color="0xD2D2D2"/>
+					<s:GradientEntry color="0x9A9A9A"/>
+				</s:LinearGradient>
+			</s:fill>
+		</s:Rect>
+		<s:Rect id="tbHilite" left="0" right="0" top="0" bottom="0">
+			<s:stroke>
+				<s:LinearGradientStroke rotation="90" weight="1">
+					<s:GradientEntry color="0xE6E6E6" />
+					<s:GradientEntry color="0xFFFFFF" alpha="0.22"/>
+				</s:LinearGradientStroke>
+			</s:stroke>
+			<s:fill>
+				<s:LinearGradient rotation="90">
+					<s:GradientEntry color="0xFFFFFF" alpha="0.15" />
+					<s:GradientEntry color="0xFFFFFF" alpha="0.15" ratio="0.44"/>
+					<s:GradientEntry color="0xFFFFFF" alpha="0" ratio="0.4401"/>
+				</s:LinearGradient>
+			</s:fill>
+		</s:Rect>
+		<s:Button id="navclosebt" left="5" top="5" width="15" height="15"
+							scaleX="1.5" scaleY="1.5"
+							skinClass="spark.skins.spark.TitleWindowCloseButtonSkin" toolTip="Hide"/>
+		<s:Label left="35" top="10" text="Help" verticalAlign="middle" fontWeight="bold"/>
+	</s:Group>
+	<s:Group id="navboad" x="0" y="35" width="100%" height="100%">
+		<s:BitmapImage left="0" top="5" width="128" height="128"
+									 source="@Embed('../assets/button/wheel128.png')"/>
+		
+		<s:RichEditableText id="wheel" left="128" right="5" top="5" height="125" editable="false"/>
+		
+		<s:BitmapImage left="0" top="130" width="128" height="128"
+									 source="@Embed('../assets/button/click128.png')"/>
+		
+		<s:RichEditableText id="clickme" left="128" right="5" top="130" height="120" editable="false"/>
+		
+		<s:BitmapImage left="0" top="230" width="128" height="128"
+									 source="@Embed('../assets/button/panTL128.png')"/>
+		
+		<s:RichEditableText id="panTL" left="128" right="5" top="230" height="120" editable="false"/>
+		
+		<s:BitmapImage left="0" top="370" width="128" height="128"
+									 source="@Embed('../assets/button/panBR128.png')"/>
+		
+		<s:RichEditableText id="panBR" left="128" right="5" top="370" height="120" editable="false"/>
+		
+		<s:BitmapImage left="0" top="500" width="128" height="128"
+									 source="@Embed('../assets/button/pan128.png')"/>
+		
+		<s:RichEditableText id="panme" left="128" right="5" top="500" height="135" editable="false"/>
+		
+		<s:BitmapImage left="0" top="650" width="128" height="128"
+									 source="@Embed('../assets/button/drag128.png')"/>
+		
+		<s:RichEditableText id="dragme" left="128" right="5" top="650" editable="false"/>
+		
+		<s:BitmapImage left="3" top="800" width="128" height="128"
+									 source="@Embed('../assets/button/keyboard128.png')"/>
+		
+		<s:RichEditableText id="pressme" left="133" right="5" top="800" editable="false"/>
+	</s:Group>
+</s:Group>
